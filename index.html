@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>FlowState</title>
+</head>
+
+<body class="bg-gray-200 flex justify-center items-center min-h-screen">
+    <div class="w-[100vh] h-[100vh] bg-[#F7F4EE] overflow-hidden shadow-xl flex">
+        <aside class="w-[100px] bg-[#F2B36D] p-4 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between mb-8">
+                    <img src="pic/iconamoon--notification-fill.svg" alt="notification">
+                    <img src="pic/tdesign--setting-1-filled.svg" alt="setting">
+                </div>
+                <ul class="space-y-6 text-sm">
+                    <li class="flex items-center gap-2 font-bold">
+                        <img src="pic/material-symbols--inbox-rounded.svg" alt="inbox"> <span>inbox</span>
+                    </li>
+                    <li class="flex items-center gap-2 font-bold">
+                        <img src="pic/solar--calendar-bold.svg" alt="calendar"><span>today</span>
+                    </li>
+                    <li class="flex items-center gap-2 font-bold">
+                        <img src="pic/tabler--calendar.svg" alt="calendar"> <span>Next 7day</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="h-[100vh]"></div>
+        </aside>
+        <main class="flex-1 p-4">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2 font-semibold">
+                    <span>Today</span>
+                </div>
+                <span class="font-medium">Tasks</span>
+            </div>
+            <div class="flex items-center bg-[#F2C185] rounded-full px-4 py-2 mb-6 gap-1">
+                <span class="text-xl mr-2">+</span>
+                <input type="text" class="opacity-70" placeholder="New Tasks"></input>
+                <img src="pic/tdesign--time-filled.svg" alt="time">
+            </div>
+            <div class="space-y-4">
+                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+            </div>
+            <div class="flex items-center justify-between mt-10 font-semibold">
+                <span>Tomorrow</span>
+                <span class="text-xl">+</span>
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>
