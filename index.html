@@ -8,52 +8,111 @@
     <title>FlowState</title>
 </head>
 
-<body class="bg-gray-200 flex justify-center items-center min-h-screen">
-    <div class="md:w-[100vh] md:h-[100vh] md:bg-[#F7F4EE] md:overflow-hidden md:shadow-xl md:flex">
-        <aside class="md:w-[100px] md:bg-[#F2B36D] md:p-4 md:flex md:flex-col md:justify-between">
+<body class="bg-gray-200">
+
+   <div class="w-full min-h-screen bg-[#F7F4EE] shadow-xl flex">
+
+        <!-- hidden checkbox -->
+        <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+        <!-- زر menu -->
+        <label for="menu-toggle" class="md:hidden p-3 cursor-pointer text-2xl">
+            ☰
+        </label>
+
+        <!-- Overlay -->
+        <label for="menu-toggle" class="fixed inset-0 bg-black/40 hidden 
+              peer-checked:block md:hidden z-40">
+        </label>
+
+        <!-- Sidebar -->
+        <aside class="fixed md:static top-0 left-0 h-screen w-64
+         bg-[#F2B36D] p-6 flex flex-col justify-between
+         transform -translate-x-full
+         peer-checked:translate-x-0
+         md:translate-x-0
+         transition-transform duration-300
+         z-50">
+
             <div>
-                <div class="md:flex md:justify-between md:mb-8">
-                    <img src="pic/iconamoon--notification-fill.svg" alt="notification">
-                    <img src="pic/tdesign--setting-1-filled.svg" alt="setting">
+                <div class="flex justify-between mb-10">
+                    <span class="font-bold">Dashboard</span>
+
+
+                    <label for="menu-toggle" class="md:hidden cursor-pointer text-xl">
+                        ✕
+                    </label>
                 </div>
-                <ul class="md:space-y-6 md:text-sm">
-                    <li class="md:flex md:items-center md:gap-2 md:font-bold">
-                        <img class="md:h-10" src="pic/material-symbols--inbox-rounded.svg" alt="inbox"> <span>inbox</span>
+
+                <ul class="space-y-6 text-sm">
+                    <li class="flex items-center gap-3 font-semibold cursor-pointer hover:opacity-70">
+                        Inbox
                     </li>
-                    <li class="md:flex md:items-center md:gap-2 md:font-bold">
-                        <img class="md:h-10" src="pic/solar--calendar-bold.svg" alt="calendar"><span>today</span>
+                    <li class="flex items-center gap-3 font-semibold cursor-pointer hover:opacity-70">
+                        Today
                     </li>
-                    <li class="md:flex md:items-center md:gap-2 md:font-bold">
-                        <img class="md:h-10" src="pic/tabler--calendar.svg" alt="calendar"> <span>Next 7day</span>
+                    <li class="flex items-center gap-3 font-semibold cursor-pointer hover:opacity-70">
+                        Next 7 days
                     </li>
                 </ul>
             </div>
-            <div class="md:h-[100vh]"></div>
+
+            
         </aside>
+
         <main class="flex-1 p-4">
             <div class="flex items-center justify-between mb-6">
                 <span class="font-semibold">Today</span>
                 <span class="font-medium">Tasks</span>
             </div>
             <div class="flex items-center bg-[#F2C185] rounded-full px-4 py-2 mb-6 gap-1">
-                <span class="text-xl mr-2">+</span>
-                <input type="text" class="opacity-70" placeholder="New Tasks"></input>
+                <span id="addTaskBtn" class="text-xl mr-2">+</span>
+                <input id="taskInput" type="text" class="opacity-70" placeholder="New Tasks"></input>
                 <img src="pic/tdesign--time-filled.svg" alt="time">
             </div>
             <div class="space-y-4">
-                <div class="h-10 bg-[#F2C185] rounded-full"></div>
-                <div class="h-10 bg-[#F2C185] rounded-full"></div>
-                <div class="h-10 bg-[#F2C185] rounded-full"></div>
-                <div class="h-10 bg-[#F2C185] rounded-full"></div>
-                <div class="h-10 bg-[#F2C185] rounded-full"></div>
+                <div id="taskList" class="h-10 bg-[#F2C185] rounded-full"></div>
+                <p id="emptyState" class="text-center text-sm mt-6 text-gray-500">No tasks for now. Enjoy your focus! </p>
+
             </div>
             <div class="flex items-center justify-between mt-10 font-semibold">
                 <span>Tomorrow</span>
                 <span class="text-xl">+</span>
             </div>
+            <div class="px-6 py-8 flex flex-col">
+                <h1 class="text-sm font-semibold mb-10"> Pomodoro timer</h1>
+                <div class="flex justify-between text-sm font-medium mb-8 px-4">
+                    <span class="font-semibold">Normal</span>
+                    <span class="font-semibold">DND</span>
+                    <span class="font-semibold">Smoothing</span>
+                </div>
+                <div class="flex justify-center mb-10">
+                    <button class="bg-[#F2B36D] text-sm px-8 py-2 rounded-full">Select task </button>
+                </div>
+                <div class="flex justify-center mb-8">
+                    <div
+                        class="w-[240px] h-[240px] border-[14px] border-[#F2B36D] rounded-full flex flex-col justify-center items-center">
+                        <span id="time" class="text-4xl font-bold">25:00</span>
+                        <span class="text-sm mt-4">1 of 4 sessions</span>
+                    </div>
+                </div>
+                <h2 class="flex justify-center font-bold mb-3">Stay Focus For 25 minute</h2>
+                <div class="flex justify-center items-center gap-10 text-2xl">
+
+                    <button aria-label="reset" id="reset"><img class="h-[60px] w-[60px]"
+                            src="pic/streamline-ultimate--timer-10.svg" alt="time"></button>
+                    <button aria-label="play" class="text-3xl text-[#F2B36D]" id="start"><img class="h-[80px] w-[80px]"
+                            src="pic/line-md--pause-to-play-filled-transition (2).svg" alt="pause"></button>
+                    <button aria-label="stop" id="stop"><img class="h-[80px] w-[80px]" src="pic/material-symbols--stop.svg"
+                            alt="stop"></button>
+                </div>
+
+            </div>
 
         </main>
     </div>
+
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>
