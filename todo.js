@@ -1,7 +1,7 @@
 import { saveTodos } from "./storage.js";
 import { renderTasks } from "./ui.js";
 
-
+const regex = /^[a-zA-Z0-9 ]+$/;
 
 export function initTodo(todos) {
   const input = document.getElementById("taskInput");
