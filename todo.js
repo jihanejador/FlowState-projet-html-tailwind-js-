@@ -25,8 +25,12 @@ export function initTodo(todos) {
   });
 
 }
-export function deleteTask(todos,id){
-    const updated = todos.filter(task=> task.id !== id);
-    saveTodos(updated);
-    renderTasks(updated);
+export function deleteTask(todos, id){
+    const index = todos.findIndex(task=> task.id==id);
+
+    if(index !==-1){
+        todos.splice(index, 1);
+        saveTodos(todos);
+        renderTasks(todos);
+    }
 }
