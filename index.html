@@ -12,27 +12,20 @@
 
    <div class="w-full min-h-screen bg-[#F7F4EE] shadow-xl flex">
 
-        <!-- hidden checkbox -->
+        
         <input type="checkbox" id="menu-toggle" class="hidden peer">
 
-        <!-- زر menu -->
+       
         <label for="menu-toggle" class="md:hidden p-3 cursor-pointer text-2xl">
             ☰
         </label>
 
-        <!-- Overlay -->
-        <label for="menu-toggle" class="fixed inset-0 bg-black/40 hidden 
-              peer-checked:block md:hidden z-40">
+      
+        <label for="menu-toggle" class="fixed inset-0 bg-black/40 hidden peer-checked:block md:hidden z-40">
         </label>
 
-        <!-- Sidebar -->
-        <aside class="fixed md:static top-0 left-0 h-screen w-64
-         bg-[#F2B36D] p-6 flex flex-col justify-between
-         transform -translate-x-full
-         peer-checked:translate-x-0
-         md:translate-x-0
-         transition-transform duration-300
-         z-50">
+        
+        <aside class="fixed md:static top-0 left-0 h-screen w-64 bg-[#F2B36D] p-6 flex flex-col justify-between transform -translate-x-full peer-checked:translate-x-0 md:translate-x-0 transition-transform duration-300 z-50">
 
             <div>
                 <div class="flex justify-between mb-10">

@@ -1,3 +1,8 @@
+import { saveTodos } from "./storage.js";
+import { renderTasks } from "./ui.js";
+
+const regex = /^[a-zA-Z0-9 ]+$/;
+
 export function initTodo(todos) {
   const input = document.getElementById("taskInput");
   const button = document.getElementById("addTaskBtn");
@@ -7,9 +12,21 @@ export function initTodo(todos) {
 
     if (!title || !regex.test(title)) return;
 
-    todos.push({ title, done: false });
-    
+    const newTask ={
+        id: Date.now(),
+        title,
+        done:false
+    };
+
+    todos.push(newTask);
+    saveTodos(todos);
     renderTasks(todos);
     input.value = "";
   });
+
+}
+export function deleteTask(todos,id){
+    const updated = todos.filter(task=> task.id !== id);
+    saveTodos(updated);
+    renderTasks(updated);
 }
