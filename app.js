@@ -5,7 +5,6 @@ import { getTodos } from "./storage.js";
 
 const todos = getTodos();
 
-// renderTasks(todos);
+renderTasks(todos);
 initTodo(todos);
-
-
+initTimer(); 
