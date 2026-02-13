@@ -1,3 +1,4 @@
+import { deleteTask } from "./todo.js";
 
 export function renderTasks(todos) {
   const list = document.getElementById("taskList");
@@ -21,7 +22,9 @@ export function renderTasks(todos) {
     const deletbtn = document.createElement("button");
     deletbtn.textContent="✕";
     deletbtn.className="text-red-600 font-bold hover:scale-110 transition";
-    deletbtn.onclick = ()=> deleteTask(todos, task.id);
+    deletbtn.addEventListener("click",()=>{
+        deleteTask(todos, task.id);
+    });
 
     li.appendChild(span);
     li.appendChild(deletbtn);
